@@ -1,31 +1,15 @@
-const ImgCarrousel = ({item}) => {
+import {Col} from 'react-bootstrap'
+
+const ImgCarrousel =({ImgCarrousel})=>{
+console.log(ImgCarrousel)
     return (
-        <>
-        
-        {item.map(({src, cityName}) => {
-            
-           
-            return (
-                
-            <div className="elCarrousel col-5" style= {{
-                backgroundImage : `url(${src})`,
-                width: "18.5vw",
-                height: "37vh",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover"
-
-            }}><p>{cityName}</p>
-            
-            </div>
-            
-        
+        ImgCarrousel.map(({src,cityName})=>(
+            <Col key={cityName} xs="5" lg="5" className="elCarrousel m-2 mt-1" style={{backgroundImage: `url(${src})`}}>
+                <p>{cityName}</p>
+            </Col>))
             )
-        })}
-        </>
-        )
-    }
+}
 
-
-    export default ImgCarrousel
+export default ImgCarrousel
 
         

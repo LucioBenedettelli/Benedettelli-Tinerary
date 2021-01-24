@@ -126,4 +126,115 @@ body{
     margin-top: 5vw;
 }
 
+.Browser{
+    display: flex;
+    justify-content: center;
+}
 
+input{
+    width: 35vw;
+    height: 10vh;
+    border: 2px solid black;
+    margin-top: 1vw;
+    text-align: center;
+}
+
+
+.cityImage{
+    width: 35vw;
+    height: 25vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh !important;
+    background-position: center !important;
+    margin: 0 auto;
+    
+}
+
+.cityImage p{
+    background-color: #00aae4;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.home {
+    width: 4vw;
+    height: 8vh;
+    margin: 0 auto;
+    margin-top: 1vw;
+}
+
+.itineraries{
+    width: 50vw;
+     height: 25vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh !important;
+    background-position: center !important;
+    margin: 0 auto;
+    
+}
+
+.itineraries p{
+    background-color: #00aae4;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.textoItineraries{
+    margin: auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 1vw;
+    margin-bottom: 2vw;
+  
+}
+
+.titleNoItineraries{
+    border: 2px solid white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    height: 20vh;
+    margin-top: 2vw;
+    margin-bottom: 5vw;
+    background-color:  #00aae4;
+    margin: 0 auto;
+  
+
+}
+
+.imgRoutes{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10vw;
+}
+
+.flechita {
+    width: 3.5vw;
+    height: 7vh;
+    margin-top: 1vw;
+    position: relative;
+    right: 2vw;
+}
+
+.home2 {
+    width: 4vw;
+    height: 8vh;
+    margin-top: 1vw;
+}

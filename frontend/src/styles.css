@@ -149,11 +149,24 @@ input{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 2vh !important;
+    margin-top: 3vh !important;
     background-position: center !important;
     margin: 0 auto;
+    border-radius: 32px 32px 32px 49px;
+-moz-border-radius: 32px 32px 32px 49px;
+-webkit-border-radius: 32px 32px 32px 49px;
+border: 0px solid #000000; 
+
+
     
 }
+
+.cityImage:hover {
+    transform: translateX(-10px);
+    transform: translateY(-10px);
+}
+
+
 
 .cityImage p{
     background-color: #00aae4;
@@ -162,6 +175,11 @@ input{
     font-size: 20px;
 }
 
+.logoDisplay{
+    display: flex;
+    justify-content: center;
+
+}
 .home {
     width: 4vw;
     height: 8vh;
@@ -230,11 +248,66 @@ input{
     height: 7vh;
     margin-top: 1vw;
     position: relative;
-    right: 2vw;
+    left: 5vw;
 }
 
 .home2 {
     width: 4vw;
     height: 8vh;
     margin-top: 1vw;
+    position: relative;
+    right: 2vw;
+}
+
+.centrado{
+    display: flex;
+    justify-content: center;
+    margin-top: 4vw;
+}
+
+.preloader {
+  width: 70px;
+  height: 70px;
+  border: 10px solid #eee;
+  border-top: 10px solid #666;
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.noCity{
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 35vw;
+    height: 30vh;
+    margin: 0 auto;
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: black;
+    font-weight: bold;
+    border-radius: 32px 32px 32px 49px;
+    -moz-border-radius: 32px 32px 32px 49px;
+    -webkit-border-radius: 32px 32px 32px 49px;
+    border: 0px solid #000000; 
+    
+}
+
+.error{
+    position: relative;
+    bottom: 0.3vw;
+    font-size: 20px;
+    text-align: center;
 }

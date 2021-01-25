@@ -15,8 +15,8 @@ const Cities = () => {
     fetch('http://localhost:4000/api/cities')
     .then(response => response.json())
     .then(data => {setCities(data.respuesta)
-    setFilterCity(data.respuesta)})
-    setLoading (false) 
+    setFilterCity(data.respuesta)
+    setLoading (false)}) 
 }, [])
 
 useEffect(() => {
@@ -34,7 +34,8 @@ if (loading === true || filterCity.length === 0) {
 <input label="Search" placeholder = "Enter city name" onChange={(e) => setSearchCity(e.target.value)}>
         </input>
         </div>
-    {loading === true ? (<h1>Loading</h1>) : (<h1>No hay nada</h1>)}
+    {(loading === true) ? <div className= "centrado"> <div className = "preloader"></div> </div>  : <div className="noCity" style={{
+    backgroundImage: `url('/assets/error.jpg')`}}><p className="error">Oh no! The requested city wasn't found!</p></div>}
     </>
   )
   }
@@ -52,6 +53,7 @@ if (loading === true || filterCity.length === 0) {
              <Link to={`/itineraries/${_id}`} className = "cityImage"
             style={{
               backgroundImage: `url('${cityImage}')`,
+              textDecoration: "none"
                 
 
                }}><p>{cityName}</p>
@@ -60,8 +62,16 @@ if (loading === true || filterCity.length === 0) {
                 
                 </Link>
             )
+
+          
           })
+
+          
         }
+
+<Link className = "logoDisplay" to = "/">
+          <img className= "home" src = "/assets/home.png"  alt="home" />
+          </Link>
         </>
   )
 

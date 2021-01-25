@@ -1,5 +1,5 @@
 import Carrusel from "./Carrusel" 
-import Header2 from "./Header2" 
+import Header from "./Header" 
 
 
 const Section = () => {
@@ -87,7 +87,7 @@ const Section = () => {
 
     return (
         <>
-        <Header2/>
+        <Header/>
             <Carrusel items={items}/>
         
         </>

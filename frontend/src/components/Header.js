@@ -1,63 +1,18 @@
-import React, { useState } from 'react';
 import {NavLink} from "react-router-dom"
 
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  Nav,
-  NavItem,
- 
- 
- 
-} from 'reactstrap';
-
-const Header = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
-  return (
-    <>
-    
- 
-      <Navbar className="nav"  light expand="md">
-    
+const Header = () => {
+    return (
+        <>
+       <div className="fondo my-3 text-center">
+        <h2 className = "mb-3">Find your perfect trip, designed by insiders who know and love their cities</h2>
         
-        <NavbarToggler onClick={toggle} />
+        <NavLink to ="/cities">
+        <img className= "imagen3 mb-3" src = "./assets/flecha.png"  alt="" />
+        </NavLink>
        
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
-            
-            <NavItem>
-             
-              <NavLink to="/"className="item1">Home</NavLink>
-            </NavItem>
-
-           
-            <NavItem>
-              <NavLink to = "/cities" className= "item">Cities</NavLink>
-            </NavItem>
-         
-
-            <NavItem>
-              <NavLink to ="/test" className = "item">Test</NavLink>
-            </NavItem>
-            
-          </Nav>
-          <img className= "imagen2" src = "./assets/logo.png"  alt="" />
-        </Collapse>
-      </Navbar>
-
-      <img className= "imagen1" src = "./assets/2.png"   alt="" />
-
-      
-     
-   
-   
-    </>
-  );
+        </div>
+        </>
+    )
 }
 
 export default Header;
-

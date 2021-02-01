@@ -1,83 +1,55 @@
-import React, { useEffect, useState } from "react"
-import {NavLink, Link} from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import citiesActions from "../redux/actions/citiesActions";
 
-
-
-const Cities = () => {
-  const [cities, setCities] = useState([])
-  const [searchCity, setSearchCity] = useState("")
-  const [filterCity, setFilterCity] = useState([])
-  const [loading, setLoading] = useState(true)
-
-
-
+const Cities = (props) => {
   useEffect(() => {
-    fetch('http://localhost:4000/api/cities')
-    .then(response => response.json())
-    .then(data => {setCities(data.respuesta)
-    setFilterCity(data.respuesta)
-    setLoading (false)}) 
-}, [])
-
-useEffect(() => {
-  
-  setFilterCity 
-  (cities.filter (city => city.cityName.toLowerCase().indexOf(searchCity.toLowerCase().trim()) === 0))
-    
-},[searchCity])
-
-if (loading === true || filterCity.length === 0) {
+    props.mostrarCiudades();
+  }, []);
 
   return (
     <>
-  <div className = "Browser">
-<input label="Search" placeholder = "Enter city name" onChange={(e) => setSearchCity(e.target.value)}>
-        </input>
-        </div>
-    {(loading === true) ? <div className= "centrado"> <div className = "preloader"></div> </div>  : <div className="noCity" style={{
-    backgroundImage: `url('/assets/error.jpg')`}}><p className="error">Oh no! The requested city wasn't found!</p></div>}
-    </>
-  )
-  }
+      <div className="Browser">
+        <input
+          label="Search"
+          placeholder="Enter city name"
+          onChange={(e) => props.filtrarCiudades(e.target.value)}
+        ></input>
+      </div>
 
-  return (
-    <>
-    <div className = "Browser">
-<input label="Search" placeholder = "Enter city name" onChange={(e) => setSearchCity(e.target.value)}>
-        </input>
-        </div>
-        {
-          filterCity.map(({_id, cityImage, cityName}) =>{
-
-            return (
-             <Link to={`/itineraries/${_id}`} className = "cityImage"
+      {props.filter.map(({ _id, cityImage, cityName }) => {
+        return (
+          <Link
+            to={`/itineraries/${_id}`}
+            className="cityImage"
             style={{
               backgroundImage: `url('${cityImage}')`,
-              textDecoration: "none"
-                
-
-               }}><p>{cityName}</p>
-
-
-                
-                </Link>
-            )
-
-          
-          })
-
-          
-        }
-
-<Link className = "logoDisplay" to = "/">
-          <img className= "home" src = "/assets/home.png"  alt="home" />
+              textDecoration: "none",
+            }}
+          >
+            <p>{cityName}</p>
           </Link>
-        </>
-  )
+        );
+      })}
 
+      <Link className="logoDisplay" to="/">
+        <img className="home" src="/assets/home.png" alt="home" />
+      </Link>
+    </>
+  );
+};
 
-    
-  
-} 
+const mapStateToProps = (state) => {
+  return {
+    cities: state.ciudad.cities,
+    filter: state.ciudad.filter,
+  };
+};
 
-export default Cities
+const mapDispatchToProps = {
+  mostrarCiudades: citiesActions.mostrarCiudades,
+  filtrarCiudades: citiesActions.filtrarCiudades,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cities);

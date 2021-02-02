@@ -8,6 +8,15 @@ const Cities = (props) => {
     props.mostrarCiudades();
   }, []);
 
+  if (props.cities.length === 0) {
+    return (
+      <div className="centrado">
+        {" "}
+        <div className="preloader"></div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="Browser">
@@ -17,21 +26,31 @@ const Cities = (props) => {
           onChange={(e) => props.filtrarCiudades(e.target.value)}
         ></input>
       </div>
-
-      {props.filter.map(({ _id, cityImage, cityName }) => {
-        return (
-          <Link
-            to={`/itineraries/${_id}`}
-            className="cityImage"
-            style={{
-              backgroundImage: `url('${cityImage}')`,
-              textDecoration: "none",
-            }}
-          >
-            <p>{cityName}</p>
-          </Link>
-        );
-      })}
+      {props.filter.length === 0 ? (
+        <div
+          className="noCity"
+          style={{
+            backgroundImage: `url('/assets/error.jpg')`,
+          }}
+        >
+          <p className="error">Oh no! The requested city wasn't found!</p>
+        </div>
+      ) : (
+        props.filter.map(({ _id, cityImage, cityName }) => {
+          return (
+            <Link
+              to={`/itineraries/${_id}`}
+              className="cityImage"
+              style={{
+                backgroundImage: `url('${cityImage}')`,
+                textDecoration: "none",
+              }}
+            >
+              <p>{cityName}</p>
+            </Link>
+          );
+        })
+      )}
 
       <Link className="logoDisplay" to="/">
         <img className="home" src="/assets/home.png" alt="home" />

@@ -11,13 +11,16 @@ const Itinerary = (item) => {
             backgroundImage: `url(${item.item.imgProfile})`,
           }}
         ></div>
-        <p>{item.item.userName}</p>
+        
+        <p className= "nombreUsuario">{item.item.userName}</p>
       </div>
       <div className="bodyItinerary">
+   
         <p className="titulito">{item.item.title}</p>
+        
         <div className="parrafosItinerary">
           <p className="likes">
-            <i className="fa fa-heart corazon "></i>
+            <i className="fa fa-heart corazon mr-2"></i>
             {item.item.likes}
           </p>
           <p className="duracion">Duration: {item.item.hours} hours</p>
@@ -33,7 +36,7 @@ const Itinerary = (item) => {
           ))}
         </div>
         <div class="form-row text-center">
-          <div class="col-10">
+          <div class="col-8">
             <button
               className="btn btn-secondary text-center botonItinerary"
               onClick={() => setVisible(!visible)}

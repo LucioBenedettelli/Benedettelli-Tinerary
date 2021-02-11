@@ -7,7 +7,7 @@ const authReducer = (state = initialState, action) => {
         case 'LOG_USER':
             localStorage.setItem('name', action.payload.response.name)
             localStorage.setItem('token', action.payload.response.token)
-            localStorage.setItem('URLPIC', action.payload.response.URLPIC)
+            localStorage.setItem('URLpic', action.payload.response.URLpic)
             return {
                 ...state,
                 loggedUser: action.payload.response

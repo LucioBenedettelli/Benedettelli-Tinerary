@@ -5,6 +5,7 @@ import itineraryActions from "../redux/actions/itineraryActions";
 import Itinerary from "./Itinerary";
 
 const Itineraries = (props) => {
+  console.log(props.itineraries)
   const id = props.match.params.id;
   const [itinerary, setItinerary] = useState({});
 
@@ -37,9 +38,10 @@ const Itineraries = (props) => {
             </div>
           </div>
         ) : (
-          props.itineraries.map((item) => <Itinerary item={item} />)
+          props.itineraries.map((item) => <Itinerary item={item} cityId={props.match.params.id} />)
         )}
       </div>
+      
 
       <div className="imgRoutes">
         <Link to="/cities">

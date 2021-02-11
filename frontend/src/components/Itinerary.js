@@ -1,7 +1,40 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux'
+import itineraryActions from '../redux/actions/itineraryActions'
 
 const Itinerary = (item) => {
+  console.log(item.item.idCity)
   const [visible, setVisible] = useState(false);
+  const [comentario, setComentario] = useState({})
+  const cityId = item.item.idCity
+  const itineraryId= item.item._id
+ 
+
+  const info = e => {
+    const valor = e.target.value
+    const campo = e.target.name
+    setComentario({
+        ...comentario,
+       userName : "Lucio",
+       imgProfile :"ffkfklf",
+       itineraryId,
+       cityId, 
+
+        [campo]: valor
+    })
+
+
+  }
+
+  
+  
+
+  const enviarInfo = async e => {
+    e.preventDefault()
+    item.cargarComentarios(comentario)
+  }
+
+  
   return (
     <div className="cadaItinerary">
       <div className="userItinerary">
@@ -63,21 +96,30 @@ const Itinerary = (item) => {
                   </div>
                 ))}
 
-<div class="dialogbox">
+
+{item.item.comments.map(comment =>{
+console.log(comment)
+  return (
+    <div class="dialogbox">
     <div class="body">
       <span class="tip tip-left"></span>
       <div class="message">
-      {item.item.comments.map((oneComment) => (
-        <span>{oneComment.comment}</span>
-      ))}
+      <span>{comment.comment}</span>
+   
+     
       </div>
     </div>  
     
   </div>
+  )
+})} 
+
+
+
         
         <div>
-        <input placeholder= "Ingrese un comentario"></input>
-<button>Aceptar</button>
+        <input name="comments" placeholder= "Ingrese un comentario" onChange={info}></input>
+<button onClick={enviarInfo}>Aceptar</button>
           </div>
 
               </div>
@@ -95,4 +137,14 @@ const Itinerary = (item) => {
   );
 };
 
-export default Itinerary;
+const mapStateToProps = state => {
+  return {
+    comment: state.itinerario.itinerary
+  }
+}
+
+const mapDispatchToProps = {
+  cargarComentarios: itineraryActions.addComments
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Itinerary) 

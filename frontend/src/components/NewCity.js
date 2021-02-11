@@ -26,7 +26,7 @@ const NewCity = (props) => {
     }
     return (
         <div className="container">
-            <h1>Cargar un nuevo autor</h1>
+            <h1>Cargar una nueva ciudad</h1>
             <hr/>
             <div className="form">
             <input type="text" name="cityName" placeholder="Ingresá el nombre de la ciudad" onChange={leerInput} />

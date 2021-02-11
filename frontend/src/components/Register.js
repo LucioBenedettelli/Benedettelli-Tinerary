@@ -1,14 +1,23 @@
 import { connect } from 'react-redux'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import authActions from '../redux/actions/authActions'
 import GoogleLogin from 'react-google-login';
 import Swal from 'sweetalert2'
+import axios from "axios"
+
 
 const Register = (props) => {
     const [nuevoUsuario, setNuevoUsuario] = useState({
         name: '', lastname: '', username: '', email: '', password: '', URLpic: '', country: ''
     })
     const [errores, setErrores] = useState([])
+    const [countries, setCountries] = useState([])
+
+    useEffect(() => {
+        axios
+        .get("https://restcountries.eu/rest/v2/all")
+        .then(data => setCountries (data.data))
+    },[]);
 
     const leerInput = e => {
         const valor = e.target.value
@@ -37,7 +46,6 @@ const Register = (props) => {
             setErrores(respuesta.errores)
         } else {
             Swal.fire({
-                position: 'top-end',
                 icon: 'success',
                 title: 'You have registered your user',
                 showConfirmButton: false,
@@ -68,7 +76,6 @@ const Register = (props) => {
                 setErrores(respuesta.errores)
             } else {
                 Swal.fire({
-                    position: 'top-end',
                     icon: 'success',
                     title: 'You have registered your user',
                     showConfirmButton: false,
@@ -84,33 +91,40 @@ const Register = (props) => {
     return (
 
         
-        <div className="container">
+        <div className="container-form">
             <div className="form">
-            <h1>Crear una nueva cuenta</h1>
+            <h1>Create new account</h1>
             <input type="text" name="name" placeholder="Name"
             onChange={leerInput} />
-            <input type="text" name="lastname" placeholder="Apellido"
+            <input type="text" name="lastname" placeholder="Lastname"
             onChange={leerInput} />
-            <input type="text" name="username" placeholder="Nombre de Usuario" 
+            <input type="text" name="username" placeholder="Username" 
             onChange={leerInput} />
-            <input type="text" name="email" placeholder="email"
+            <input type="text" name="email" placeholder="Email"
             onChange={leerInput} />
             <input type="password" name="password" placeholder="password"
             onChange={leerInput} />
-            <input type="text" name="URLpic" placeholder="URL"
+            <input type="text" name="URLpic" placeholder="Profile picture"
             onChange={leerInput} />
-            <input type="text" name="country" placeholder="country"
-            onChange={leerInput} />
-            <button onClick={validarUsuario}>Validar</button>
-            </div>
+            <select className= "seleccionador" name="country" onChange={leerInput}>
+                    {countries.map(country => <option>{country.name}</option>)}
 
-            <GoogleLogin
+
+                   </select>
+                   <div className="botones">
+            <button className="buttonRegister" onClick={validarUsuario}>Create Account</button>
+
+            <GoogleLogin className= "google"
     clientId="958442334135-59seulshhm4396e4ls8f3uugeggsenag.apps.googleusercontent.com"
     buttonText="Create Account"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
   />
+            </div>
+            </div>
+
+            
 
             <div className="errores">
                 {errores.map(error => <h2>{error}</h2>)}

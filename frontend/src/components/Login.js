@@ -33,7 +33,6 @@ const Login = (props) => {
             setErrores([respuesta.mensaje])
         } else {
             Swal.fire({
-                position: 'top-end',
                 icon: 'success',
                 title: 'Welcome to MyTinerary',
                 showConfirmButton: false,
@@ -59,7 +58,6 @@ const Login = (props) => {
                 setErrores([respuesta.mensaje])
             } else {
                 Swal.fire({
-                    position: 'top-end',
                     icon: 'success',
                     title: 'Welcome to MyTinerary',
                     showConfirmButton: false,
@@ -74,21 +72,26 @@ const Login = (props) => {
     return (
         <div className="container">
             <div className="form">
-            <h1>Ingresar a tu cuenta</h1>
-            <input type="text" name="username" placeholder="Nombre de usuario"
+            <h1>Login</h1>
+            <input  type="text" name="username" placeholder="Username"
             onChange={leerInput} />
-            <input type="password" name="password" placeholder="Contraseña"
+            <input type="password" name="password" placeholder="Password"
             onChange={leerInput} />
             </div>
-            <button onClick={validarUsuario}>Validar</button>
 
-            <GoogleLogin
+            
+            <div className="botoncitos">
+            <button className="buttonLogin" onClick={validarUsuario}>Login</button>
+            <GoogleLogin className="googlecito"
     clientId="958442334135-59seulshhm4396e4ls8f3uugeggsenag.apps.googleusercontent.com"
     buttonText="Login Account"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
   />
+  </div> 
+           
+
 
             <div className="errores">
                 {errores.map(error => <h2>{error}</h2>)}

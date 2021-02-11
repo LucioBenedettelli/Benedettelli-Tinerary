@@ -29,11 +29,9 @@ const authActions = {
                 dispatch({type: 'LOG_USER', payload: {response: {...respuesta.data.response}}})
             } catch(err) {
                
-                if (err.response.status === 401) {
-                    alert("Usted está intentando cagarme...")
+    
                     localStorage.clear()
-                    return '/'
-                }
+                 
                 
             }
         }

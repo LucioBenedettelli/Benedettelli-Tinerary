@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import React, { useState } from 'react'
 import allCityActions from "../redux/actions/allCityActions"
+import Swal from 'sweetalert2'
 
 const NewCity = (props) => {
     const [newCity, setNewCity] = useState({
@@ -18,7 +19,11 @@ const NewCity = (props) => {
     const enviarInfo = e => {
         e.preventDefault()
         if (newCity.cityName=== '' || newCity.cityImage === '') {
-            alert("Nombre, apellido y nacionalidad son obligatorios")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '¡City name and image are required!',
+              })
             return false
         }
         props.newCity(newCity)
@@ -26,12 +31,14 @@ const NewCity = (props) => {
     }
     return (
         <div className="container">
-            <h1>Cargar una nueva ciudad</h1>
+            <h1 className="newcities">Load a new city</h1>
             <hr/>
+            <div className="botonesCiudad">
             <div className="form">
-            <input type="text" name="cityName" placeholder="Ingresá el nombre de la ciudad" onChange={leerInput} />
-            <input type="text" name="cityImage" placeholder="Ingresá la imagen" onChange={leerInput}/>
-            <button onClick={enviarInfo}>Enviar</button>
+            <input type="text" name="cityName" placeholder="Enter the city name" onChange={leerInput} />
+            <input type="text" name="cityImage" placeholder="Enter the image" onChange={leerInput}/>
+            <button className= "submit" onClick={enviarInfo}>Submit</button>
+            </div>
             </div>
         </div>
     )

@@ -617,4 +617,27 @@ border: 0px solid #000000;
 
 .googlecito{
     width: 20%;
+    text-align: center;
+}
+
+.logeo{
+    text-align: center;
+    position: relative;
+    right: 7vw;
+}
+
+.tituloActividades{
+    background-color: red;
+}
+
+.submit{
+    margin-left: 1vw;
+    width: 10%;
+    
+}
+
+.newcities{
+    text-align: center;
+    position: relative;
+    right: 5vw;
 }

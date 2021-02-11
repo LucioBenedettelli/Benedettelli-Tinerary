@@ -92,13 +92,13 @@ const Itinerary = (item) => {
                       backgroundRepeat: "no-repeat",
                     }}
                   >
-                    <h4>{activity.titleActivity}</h4>{" "}
+                    <h4 className= "titulo">{activity.titleActivity}</h4>{" "}
                   </div>
                 ))}
 
 
 {item.item.comments.map(comment =>{
-console.log(comment)
+
   return (
     <div class="dialogbox">
     <div class="body">

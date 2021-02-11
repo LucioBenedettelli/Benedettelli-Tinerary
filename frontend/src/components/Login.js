@@ -72,7 +72,7 @@ const Login = (props) => {
     return (
         <div className="container">
             <div className="form">
-            <h1>Login</h1>
+            <h1 className="logeo">Login</h1>
             <input  type="text" name="username" placeholder="Username"
             onChange={leerInput} />
             <input type="password" name="password" placeholder="Password"

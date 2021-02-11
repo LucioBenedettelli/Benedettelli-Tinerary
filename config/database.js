@@ -10,3 +10,4 @@ mongoose.connect("mongodb+srv://luciobenedettelli:mytinerary2021@cluster0.a8iua.
 })
 .then(() => console.log("Database connected"))
 .catch(error => console.log(error))
+

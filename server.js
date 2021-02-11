@@ -12,4 +12,4 @@ app.use(express.json())
 
 app.use('/api', router)
 
-app.listen(4000, () => console.log("app listening on port 3000"))
+app.listen(4000, () => console.log("app listening on port 4000"))

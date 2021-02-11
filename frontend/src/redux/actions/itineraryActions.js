@@ -9,7 +9,17 @@ const itineraryActions = {
         payload: data.data.respuesta,
       });
     };
+    
+
+    
   },
-};
+  
+
+  
+ 
+
+  
+}
+
 
 export default itineraryActions;

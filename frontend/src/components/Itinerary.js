@@ -11,13 +11,12 @@ const Itinerary = (item) => {
             backgroundImage: `url(${item.item.imgProfile})`,
           }}
         ></div>
-        
-        <p className= "nombreUsuario">{item.item.userName}</p>
+
+        <p className="nombreUsuario">{item.item.userName}</p>
       </div>
       <div className="bodyItinerary">
-   
         <p className="titulito">{item.item.title}</p>
-        
+
         <div className="parrafosItinerary">
           <p className="likes">
             <i className="fa fa-heart corazon mr-2"></i>
@@ -43,11 +42,51 @@ const Itinerary = (item) => {
             >
               {!visible ? "View All" : "View Less"}
             </button>
-            {visible && (
-              <h1>
-                We are working on a possible improvement of the site. Thank you
-              </h1>
+            {!visible ? (
+              <div>
+                
+              </div>
+            ) : (
+              <div className="d-flex justify-content-center activities column ">
+                {item.item.activities.map((activity) => (
+                  <div
+                    className=" m-4"
+                    style={{
+                      backgroundImage: `url('${activity.imgActivity}')`,
+                      width: "20vw",
+                      height: "40vh",
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  >
+                    <h4>{activity.titleActivity}</h4>{" "}
+                  </div>
+                ))}
+
+<div class="dialogbox">
+    <div class="body">
+      <span class="tip tip-left"></span>
+      <div class="message">
+      {item.item.comments.map((oneComment) => (
+        <span>{oneComment.comment}</span>
+      ))}
+      </div>
+    </div>  
+    
+  </div>
+        
+        <div>
+        <input placeholder= "Ingrese un comentario"></input>
+<button>Aceptar</button>
+          </div>
+
+              </div>
+            
+           
             )}
+
+
+
           </div>
         </div>
       </div>

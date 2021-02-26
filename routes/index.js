@@ -15,6 +15,9 @@ router.route('/itineraries/:id')
 .get(cityController.oneCity)
 
 router.route("/itineraries")
+.post(ItineraryController.addComment)
+
+router.route("/itineraries/addItinerary")
 .post(ItineraryController.addItinerary)
 
 router.route("/itinerary/:idCity")

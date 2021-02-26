@@ -39,7 +39,24 @@ const ItineraryController = {
     const register = await Itinerary.find({idCity: id})  
     res.json({success: true, respuesta: register})
     
-    }
+    },
+
+
+    addComment: (req,res) => {
+
+        Itinerary.findOneAndUpdate(
+            {_id: req.body.itineraryId},
+            {$push: {comments: {comment: req.body.comments, userName: req.body.userName, imgProfile: req.body.imgProfile}}}
+        )
+
+        .then(data => {
+            return res.json({success: true, respuesta: data})
+        })
+
+        .catch(error =>{
+            return res.json({success: false, error: error})
+        })
+},
 
 }
 

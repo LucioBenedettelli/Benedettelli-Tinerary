@@ -13,6 +13,8 @@ const validator = {
         country: Joi.string().trim().required().min(2).max(15)
     })
 
+    console.log(req)
+
     const validation = schema.validate(req.body, {abortEarly: false})
 
     if (!validation.error) {

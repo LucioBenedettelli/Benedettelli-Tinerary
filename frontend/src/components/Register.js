@@ -93,8 +93,9 @@ const Register = (props) => {
         
         <div className="container-form">
             <div className="form">
-            <h1>Create new account</h1>
-            <input type="text" name="name" placeholder="Name"
+            <h1 className= "textRegister">Create new account</h1>
+            <div className="inputCenters">
+            <input type="text" name="name" placeholder="Name" className="formRegister"
             onChange={leerInput} />
             <input type="text" name="lastname" placeholder="Lastname"
             onChange={leerInput} />
@@ -111,8 +112,9 @@ const Register = (props) => {
 
 
                    </select>
+                   </div>
                    <div className="botones">
-            <button className="buttonRegister" onClick={validarUsuario}>Create Account</button>
+            <button className="btn-grad" onClick={validarUsuario}>Create Account</button>
 
             <GoogleLogin className= "google"
     clientId="958442334135-59seulshhm4396e4ls8f3uugeggsenag.apps.googleusercontent.com"

@@ -70,13 +70,15 @@ const Login = (props) => {
       
 
     return (
-        <div className="container">
-            <div className="form">
+        <div className="container-login">
+            <div className="form2">
             <h1 className="logeo">Login</h1>
-            <input  type="text" name="username" placeholder="Username"
+            <div className = "logueando">
+            <input  type="text" name="username" placeholder="Username" className="inputLogin"
             onChange={leerInput} />
-            <input type="password" name="password" placeholder="Password"
+            <input type="password" name="password" placeholder="Password" className ="inputLogin"
             onChange={leerInput} />
+            </div>
             </div>
 
             

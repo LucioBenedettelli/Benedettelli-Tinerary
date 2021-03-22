@@ -29,10 +29,7 @@ const Itinerary = (item) => {
   
   
 
-  const enviarInfo = async e => {
-    e.preventDefault()
-    item.cargarComentarios(comentario)
-  }
+
 
   
   return (
@@ -89,6 +86,8 @@ const Itinerary = (item) => {
                       width: "20vw",
                       height: "40vh",
                       backgroundSize: "contain",
+                      color: "white",
+                      fontWeight: "bold",
                       backgroundRepeat: "no-repeat",
                     }}
                   >
@@ -117,10 +116,7 @@ const Itinerary = (item) => {
 
 
         
-        <div>
-        <input name="comments" placeholder= "Ingrese un comentario" onChange={info}></input>
-<button onClick={enviarInfo}>Aceptar</button>
-          </div>
+      
 
               </div>
             

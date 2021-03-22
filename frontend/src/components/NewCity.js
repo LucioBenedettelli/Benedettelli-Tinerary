@@ -35,9 +35,13 @@ const NewCity = (props) => {
             <hr/>
             <div className="botonesCiudad">
             <div className="form">
+                <div className = "inputCities">
             <input type="text" name="cityName" placeholder="Enter the city name" onChange={leerInput} />
             <input type="text" name="cityImage" placeholder="Enter the image" onChange={leerInput}/>
+            </div>
+            <div className= "citiesButton">
             <button className= "submit" onClick={enviarInfo}>Submit</button>
+            </div>
             </div>
             </div>
         </div>
